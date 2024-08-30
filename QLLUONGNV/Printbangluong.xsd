@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Printbangluong" targetNamespace="http://tempuri.org/Printbangluong.xsd" xmlns:mstns="http://tempuri.org/Printbangluong.xsd" xmlns="http://tempuri.org/Printbangluong.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="QLNhanvienluongConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="QLNhanvienluongConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.QLLUONGNV.Properties.Settings.GlobalReference.Default.QLNhanvienluongConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QLNhanvienluongConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Ngaylamviec.MaNV, NhanVien.TenNV, ChucVu.TenChucVu, Ngaylamviec.ThangLam, Ngaylamviec.NamLam, Ngaylamviec.TongThuong, Ngaylamviec.TongTru, BacLuong.HeSoLuong * 1800000 AS Luongcoban, 
+                  BacLuong.HeSoLuong * 1800000 / 22 * Ngaylamviec.SoNgayLam AS LuongThucTe, Ngaylamviec.SoNgayLam, ChucVu.HeSoChucVu * 1800000 AS HesoCV, 
+                  BacLuong.HeSoLuong * 1800000 / 22 * Ngaylamviec.SoNgayLam + ChucVu.HeSoChucVu * 1800000 + Ngaylamviec.TongThuong - Ngaylamviec.TongTru AS Thuclanh
+FROM     NhanVien INNER JOIN
+                  ChucVu ON ChucVu.MaChucVu = NhanVien.MaChucVu INNER JOIN
+                  BacLuong ON BacLuong.MaBacLuong = NhanVien.MaBacLuong INNER JOIN
+                  Ngaylamviec ON Ngaylamviec.MaNV = NhanVien.MaNV
+WHERE  (NhanVien.Xoa = 0)
+GROUP BY Ngaylamviec.MaNV, Ngaylamviec.ThangLam, Ngaylamviec.NamLam, NhanVien.TenNV, ChucVu.TenChucVu, BacLuong.HeSoLuong, Ngaylamviec.SoNgayLam, ChucVu.HeSoChucVu, Ngaylamviec.TongThuong, Ngaylamviec.TongTru</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MaNV" DataSetColumn="MaNV" />
+              <Mapping SourceColumn="TenNV" DataSetColumn="TenNV" />
+              <Mapping SourceColumn="TenChucVu" DataSetColumn="TenChucVu" />
+              <Mapping SourceColumn="ThangLam" DataSetColumn="ThangLam" />
+              <Mapping SourceColumn="NamLam" DataSetColumn="NamLam" />
+              <Mapping SourceColumn="TongThuong" DataSetColumn="TongThuong" />
+              <Mapping SourceColumn="TongTru" DataSetColumn="TongTru" />
+              <Mapping SourceColumn="Luongcoban" DataSetColumn="Luongcoban" />
+              <Mapping SourceColumn="LuongThucTe" DataSetColumn="LuongThucTe" />
+              <Mapping SourceColumn="SoNgayLam" DataSetColumn="SoNgayLam" />
+              <Mapping SourceColumn="HesoCV" DataSetColumn="HesoCV" />
+              <Mapping SourceColumn="Thuclanh" DataSetColumn="Thuclanh" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Printbangluong" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="Printbangluong" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Printbangluong">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_UserTableName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaNV" msprop:Generator_ColumnPropNameInRow="MaNV" msprop:Generator_ColumnPropNameInTable="MaNVColumn" msprop:Generator_ColumnVarNameInTable="columnMaNV" msprop:Generator_UserColumnName="MaNV">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TenNV" msprop:Generator_ColumnPropNameInRow="TenNV" msprop:Generator_ColumnPropNameInTable="TenNVColumn" msprop:Generator_ColumnVarNameInTable="columnTenNV" msprop:Generator_UserColumnName="TenNV">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TenChucVu" msprop:Generator_ColumnPropNameInRow="TenChucVu" msprop:Generator_ColumnPropNameInTable="TenChucVuColumn" msprop:Generator_ColumnVarNameInTable="columnTenChucVu" msprop:Generator_UserColumnName="TenChucVu" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ThangLam" msprop:Generator_ColumnPropNameInRow="ThangLam" msprop:Generator_ColumnPropNameInTable="ThangLamColumn" msprop:Generator_ColumnVarNameInTable="columnThangLam" msprop:Generator_UserColumnName="ThangLam" type="xs:int" minOccurs="0" />
+              <xs:element name="NamLam" msprop:Generator_ColumnPropNameInRow="NamLam" msprop:Generator_ColumnPropNameInTable="NamLamColumn" msprop:Generator_ColumnVarNameInTable="columnNamLam" msprop:Generator_UserColumnName="NamLam" type="xs:int" minOccurs="0" />
+              <xs:element name="TongThuong" msprop:Generator_ColumnPropNameInRow="TongThuong" msprop:Generator_ColumnPropNameInTable="TongThuongColumn" msprop:Generator_ColumnVarNameInTable="columnTongThuong" msprop:Generator_UserColumnName="TongThuong" type="xs:double" minOccurs="0" />
+              <xs:element name="TongTru" msprop:Generator_ColumnPropNameInRow="TongTru" msprop:Generator_ColumnPropNameInTable="TongTruColumn" msprop:Generator_ColumnVarNameInTable="columnTongTru" msprop:Generator_UserColumnName="TongTru" type="xs:double" minOccurs="0" />
+              <xs:element name="Luongcoban" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Luongcoban" msprop:Generator_ColumnPropNameInTable="LuongcobanColumn" msprop:Generator_ColumnVarNameInTable="columnLuongcoban" msprop:Generator_UserColumnName="Luongcoban" type="xs:double" minOccurs="0" />
+              <xs:element name="LuongThucTe" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="LuongThucTe" msprop:Generator_ColumnPropNameInTable="LuongThucTeColumn" msprop:Generator_ColumnVarNameInTable="columnLuongThucTe" msprop:Generator_UserColumnName="LuongThucTe" type="xs:double" minOccurs="0" />
+              <xs:element name="SoNgayLam" msprop:Generator_ColumnPropNameInRow="SoNgayLam" msprop:Generator_ColumnPropNameInTable="SoNgayLamColumn" msprop:Generator_ColumnVarNameInTable="columnSoNgayLam" msprop:Generator_UserColumnName="SoNgayLam" type="xs:int" minOccurs="0" />
+              <xs:element name="HesoCV" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="HesoCV" msprop:Generator_ColumnPropNameInTable="HesoCVColumn" msprop:Generator_ColumnVarNameInTable="columnHesoCV" msprop:Generator_UserColumnName="HesoCV" type="xs:double" minOccurs="0" />
+              <xs:element name="Thuclanh" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Thuclanh" msprop:Generator_ColumnPropNameInTable="ThuclanhColumn" msprop:Generator_ColumnVarNameInTable="columnThuclanh" msprop:Generator_UserColumnName="Thuclanh" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
